@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-c85814e835b4eb8ffdd99aaf0c5dbf70"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Year", "scale": {"scheme": "dark2"}, "title": "Year", "type": "nominal"}, "column": {"field": "Racial Group", "sort": ["Native Hawaiian or Pacific Islander", "Native American", "Asian", "Hispanic or Latino", "White", "Black"], "title": "Racial Groups", "type": "nominal"}, "tooltip": [{"field": "Racial Group", "title": "Racial Group", "type": "nominal"}, {"field": "Year", "title": "Year", "type": "nominal"}, {"field": "Population", "title": "Population", "type": "quantitative"}], "x": {"field": "Population", "title": "Population", "type": "quantitative"}, "y": {"field": "Year", "title": "Year", "type": "nominal"}}, "height": 200, "title": "Racial Demographics in Washington, D.C. (2000 vs 2017)", "width": 450, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-c85814e835b4eb8ffdd99aaf0c5dbf70": [{"Racial Group": "White", "Year": "2000", "Population": 159177.99997946003}, {"Racial Group": "Black", "Year": "2000", "Population": 346082.9999569}, {"Racial Group": "Asian", "Year": "2000", "Population": 17124.00000417}, {"Racial Group": "Native American", "Year": "2000", "Population": 1841.999998973}, {"Racial Group": "Native Hawaiian or Pacific Islander", "Year": "2000", "Population": 137.999999741}, {"Racial Group": "Hispanic or Latino", "Year": "2000", "Population": 44953.00002139}, {"Racial Group": "White", "Year": "2017", "Population": 241901.0}, {"Racial Group": "Black", "Year": "2017", "Population": 315159.0}, {"Racial Group": "Asian", "Year": "2017", "Population": 25063.0}, {"Racial Group": "Native American", "Year": "2017", "Population": 1757.0}, {"Racial Group": "Native Hawaiian or Pacific Islander", "Year": "2017", "Population": 241.0}, {"Racial Group": "Hispanic or Latino", "Year": "2017", "Population": 71829.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
